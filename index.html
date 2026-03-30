@@ -1,251 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+mport React from "react";
+import {
+View,
+Text,
+ScrollView,
+TouchableOpacity,
+StyleSheet,
+Image
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-<title>Fox Ledger</title>
+export default function DashboardScreen({ navigation }) {
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0b0f14;
-  color: #fff;
+const Step = ({ icon, title, desc, onPress }) => (
+<TouchableOpacity style={styles.card} onPress={onPress}>
+<View style={styles.row}>
+
+<View style={styles.iconBox}>
+<Ionicons name={icon} size={20} color="#fff" />
+</View>
+
+<View style={{ flex: 1 }}>
+<Text style={styles.title}>{title}</Text>
+<Text style={styles.desc}>{desc}</Text>
+</View>
+
+<Ionicons name="chevron-forward" size={18} color="#bbb" />
+</View>
+</TouchableOpacity>
+);
+
+return (
+<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+
+{/* HEADER */}
+<View style={styles.headerBox}>
+
+<Image
+source={require("../assets/logo.png")}
+style={styles.logo}
+/>
+
+<Text style={styles.header}>FoxLedger</Text>
+
+<Text style={styles.sub}>
+Your business manager
+</Text>
+
+</View>
+
+{/* SECTION */}
+<Text style={styles.sectionTitle}>Getting Started</Text>
+
+{/* STEPS */}
+<Step
+icon="person-add"
+title="Add Client"
+desc="Create your customer before making sales."
+onPress={() => navigation.navigate("Clients")}
+/>
+
+<Step
+icon="cube"
+title="Add Inventory Items"
+desc="Add products you want to sell."
+onPress={() => navigation.navigate("Inventory")}
+/>
+
+<Step
+icon="cart"
+title="Create Sale"
+desc="Record cash or account sales."
+onPress={() => navigation.navigate("Sales")}
+/>
+
+<Step
+icon="return-down-back"
+title="Process Returns"
+desc="Handle returned items easily."
+onPress={() => navigation.navigate("Returns")}
+/>
+
+<Step
+icon="cash"
+title="Record Payment"
+desc="Capture payments and reduce balances."
+onPress={() => navigation.navigate("Payments")}
+/>
+
+{/* TIP */}
+<View style={styles.tipBox}>
+<Ionicons name="sparkles" size={16} color="#0B1F3A" />
+<Text style={styles.tipText}>
+Add company details in settings to enable invoicing.
+</Text>
+</View>
+
+</ScrollView>
+);
 }
 
-/* HERO */
-header {
-  text-align: center;
-  padding: 70px 20px;
-}
+const styles = StyleSheet.create({
 
-h1 {
-  font-size: 50px;
-}
+container: {
+flex: 1,
+backgroundColor: "#F5F6FA",
+padding: 15,
+},
 
-.tagline {
-  color: #aaa;
-  font-size: 18px;
-}
+headerBox: {
+backgroundColor: "#0B1F3A",
+paddingVertical: 40,
+paddingHorizontal: 20,
+borderRadius: 30,
+marginBottom: 25,
+alignItems: "center",
+},
 
-.download-btn {
-  background: linear-gradient(135deg, #00c896, #00a67d);
-  padding: 15px 40px;
-  border-radius: 12px;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 25px;
-  font-weight: bold;
-  cursor: pointer;
-}
+logo: {
+width: 80,
+height: 80,
+resizeMode: "contain",
+marginBottom: 10,
+},
 
-/* SECTION */
-.section {
-  padding: 50px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+header: {
+fontSize: 28,
+fontWeight: "bold",
+color: "#fff",
+textAlign: "center",
+},
 
-.card {
-  background: #121821;
-  padding: 25px;
-  border-radius: 18px;
-  margin-bottom: 25px;
-}
+sub: {
+fontSize: 14,
+color: "#ccc",
+marginTop: 5,
+textAlign: "center",
+},
 
-/* SLIDER */
-.slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding-bottom: 10px;
-}
+sectionTitle: {
+fontSize: 15,
+fontWeight: "600",
+marginBottom: 15,
+marginLeft: 5,
+},
 
-.phone {
-  min-width: 220px;
-  background: black;
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
-}
+card: {
+backgroundColor: "#fff",
+padding: 14,
+borderRadius: 18,
+marginBottom: 12,
+elevation: 2,
+},
 
-.phone img {
-  width: 100%;
-  border-radius: 20px;
-}
+row: {
+flexDirection: "row",
+alignItems: "center",
+},
 
-.label {
-  text-align: center;
-  margin-top: 8px;
-  color: #ccc;
-  font-size: 14px;
-}
+iconBox: {
+width: 38,
+height: 38,
+borderRadius: 10,
+backgroundColor: "#FF8C00",
+justifyContent: "center",
+alignItems: "center",
+marginRight: 12,
+},
 
-/* GUIDE */
-.guide-step {
-  margin-bottom: 12px;
-}
+title: {
+fontSize: 14,
+fontWeight: "600",
+},
 
-/* POPUP */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
+desc: {
+fontSize: 12,
+color: "#777",
+marginTop: 2,
+},
 
-.popup-content {
-  background: #121821;
-  padding: 25px;
-  border-radius: 15px;
-  max-width: 400px;
-  text-align: center;
-}
+tipBox: {
+flexDirection: "row",
+alignItems: "center",
+marginTop: 20,
+padding: 12,
+backgroundColor: "#E8EEF7",
+borderRadius: 12,
+},
 
-.close-btn {
-  margin-top: 15px;
-  background: red;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+tipText: {
+marginLeft: 8,
+fontSize: 12,
+color: "#333",
+flex: 1,
+},
 
-/* HIGHLIGHT TEXT */
-.highlight {
-  color: #00c896;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #777;
-}
-</style>
-
-</head>
-
-<body>
-
-<header>
-  <h1>🦊 Fox Ledger</h1>
-  <p class="tagline">Smart Business Management, Simplified</p>
-
-  <div class="download-btn" onclick="openPopup()">
-    Download APK
-  </div>
-</header>
-
-<div class="section">
-
-  <div class="card">
-    <h2>🚀 About Fox Ledger</h2>
-    <p>
-      Fox Ledger is an all-in-one business management solution designed to help you
-      manage clients, inventory, sales, returns, and payments effortlessly.
-      Built for speed, clarity, and full offline capability.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>📱 App Preview</h2>
-
-    <div class="slider">
-
-      <div><div class="phone"><img src="dashboard.png"></div><div class="label">Dashboard</div></div>
-      <div><div class="phone"><img src="clients.png"></div><div class="label">Clients</div></div>
-      <div><div class="phone"><img src="add-client.png"></div><div class="label">Add Client</div></div>
-      <div><div class="phone"><img src="inventory.png"></div><div class="label">Inventory</div></div>
-      <div><div class="phone"><img src="add-item.png"></div><div class="label">Add Item</div></div>
-      <div><div class="phone"><img src="sales.png"></div><div class="label">Sales</div></div>
-      <div><div class="phone"><img src="sales-history.png"></div><div class="label">Sales History</div></div>
-      <div><div class="phone"><img src="returns.png"></div><div class="label">Returns</div></div>
-      <div><div class="phone"><img src="returns-history.png"></div><div class="label">Returns History</div></div>
-      <div><div class="phone"><img src="payments.png"></div><div class="label">Payments</div></div>
-      <div><div class="phone"><img src="payments-history.png"></div><div class="label">Payments History</div></div>
-      <div><div class="phone"><img src="settings.png"></div><div class="label">Settings</div></div>
-
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>📊 Reports & Insights</h2>
-    <p>
-      Gain full visibility into your business with built-in reporting tools.
-      Monitor sales performance, track stock movement, review client balances,
-      and make informed decisions with clarity and confidence.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>📖 Quick Start Guide</h2>
-    <div class="guide-step"><b>1.</b> Add your clients</div>
-    <div class="guide-step"><b>2.</b> Add your inventory items</div>
-    <div class="guide-step"><b>3.</b> Create sales (cash or account)</div>
-    <div class="guide-step"><b>4.</b> Record incoming payments</div>
-    <div class="guide-step"><b>5.</b> Track returns and history</div>
-    <div class="guide-step"><b>6.</b> Use reports to monitor performance</div>
-  </div>
-
-  <div class="card">
-    <h2>⚠️ Important Setup</h2>
-    
-    <p>
-      To enable professional invoice generation and ensure accurate business records,
-      Fox Ledger requires your company and payment details to be configured.
-    </p>
-
-    <ul>
-      <li>🏢 Navigate to <b>Settings</b> and enter your company information</li>
-      <li>🏦 Add up to <b>three bank accounts</b> for payment flexibility</li>
-      <li>📲 Include your <b>Shop2Shop account</b> and barcode for invoice display</li>
-      <li>🧾 These details will be automatically applied to generated invoices</li>
-    </ul>
-
-    <p class="highlight">
-      ✔ Completing this setup is required before generating PDF invoices
-    </p>
-  </div>
-
-</div>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h3>Install Fox Ledger</h3>
-    <p>1. Download the APK file</p>
-    <p>2. Allow installation from unknown sources</p>
-    <p>3. Install and launch the app</p>
-
-    <a href="https://upload.app/download/foxledger/com.foxledger.app/45dcd2742b8e8d876a67f909a9c67bb6f17eb269b01f8d43ad9622ff270101b1" class="download-btn">
-      Download Now
-    </a>
-
-    <div class="close-btn" onclick="closePopup()">Close</div>
-  </div>
-</div>
-
-<footer>
-  © 2026 Fox Ledger. All rights reserved.
-</footer>
-
-<script>
-function openPopup() {
-  document.getElementById('popup').style.display = 'flex';
-}
-
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-</script>
-
-</body>
-</html>
+});
