@@ -3,104 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Fox Ledger</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0d0d0d;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0f14;
+  color: #fff;
 }
 
+/* HERO */
 header {
   text-align: center;
-  padding: 40px;
+  padding: 70px 20px;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 50px;
+}
+
+.tagline {
+  color: #aaa;
+  font-size: 18px;
 }
 
 .download-btn {
-  background: #00c896;
-  padding: 15px 30px;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #00c896, #00a67d);
+  padding: 15px 40px;
+  border-radius: 12px;
   color: white;
   text-decoration: none;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 25px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
+/* SECTION */
 .section {
-  padding: 40px;
-  max-width: 900px;
+  padding: 50px 20px;
+  max-width: 1100px;
   margin: auto;
 }
 
 .card {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  background: #121821;
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 25px;
 }
 
+/* SLIDER */
+.slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.phone {
+  min-width: 220px;
+  background: black;
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.phone img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.label {
+  text-align: center;
+  margin-top: 8px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* GUIDE */
 .guide-step {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #121821;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 400px;
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: red;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Your App Name</h1>
-  <p>Smart. Fast. Simple.</p>
+  <h1>🦊 Fox Ledger</h1>
+  <p class="tagline">Your Business Manager</p>
 
-  <a class="download-btn" href="PASTE_YOUR_APK_LINK_HERE">
+  <div class="download-btn" onclick="openPopup()">
     Download APK
-  </a>
+  </div>
 </header>
 
 <div class="section">
 
   <div class="card">
-    <h2>🚀 Features</h2>
-    <ul>
-      <li>Easy to use interface</li>
-      <li>Fast performance</li>
-      <li>Offline functionality</li>
-      <li>Smart dashboard</li>
-    </ul>
+    <h2>🚀 About</h2>
+    <p>
+      Fox Ledger helps you manage your business with ease — clients,
+      inventory, sales, returns, payments, and reports in one place.
+    </p>
   </div>
 
   <div class="card">
-    <h2>📖 User Guide</h2>
+    <h2>📱 App Preview</h2>
 
-    <div class="guide-step">
-      <b>Step 1:</b> Install the app
-    </div>
+    <div class="slider">
 
-    <div class="guide-step">
-      <b>Step 2:</b> Open dashboard
-    </div>
+      <div>
+        <div class="phone"><img src="dashboard.png"></div>
+        <div class="label">Dashboard</div>
+      </div>
 
-    <div class="guide-step">
-      <b>Step 3:</b> Add your data
-    </div>
+      <div>
+        <div class="phone"><img src="clients.png"></div>
+        <div class="label">Clients</div>
+      </div>
 
-    <div class="guide-step">
-      <b>Step 4:</b> Manage and track easily
+      <div>
+        <div class="phone"><img src="add-client.png"></div>
+        <div class="label">Add Client</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="inventory.png"></div>
+        <div class="label">Inventory</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="add-item.png"></div>
+        <div class="label">Add Item</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="sales.png"></div>
+        <div class="label">Sales</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="sales-history.png"></div>
+        <div class="label">Sales History</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="returns.png"></div>
+        <div class="label">Returns</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="returns-history.png"></div>
+        <div class="label">Returns History</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="payments.png"></div>
+        <div class="label">Payments</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="payments-history.png"></div>
+        <div class="label">Payments History</div>
+      </div>
+
+      <div>
+        <div class="phone"><img src="settings.png"></div>
+        <div class="label">Settings</div>
+      </div>
+
     </div>
 
   </div>
 
   <div class="card">
-    <h2>📱 Screenshots</h2>
-    <p>Add your screenshots here later</p>
+    <h2>📊 Reports</h2>
+    <p>
+      Track performance, monitor sales, manage stock movement,
+      and analyze client balances with built-in reports.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>📖 Quick Guide</h2>
+    <div class="guide-step"><b>1.</b> Add Clients</div>
+    <div class="guide-step"><b>2.</b> Add Inventory</div>
+    <div class="guide-step"><b>3.</b> Create Sales</div>
+    <div class="guide-step"><b>4.</b> Record Payments</div>
+    <div class="guide-step"><b>5.</b> Track Reports</div>
   </div>
 
 </div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h3>Install Fox Ledger</h3>
+    <p>1. Download APK</p>
+    <p>2. Allow unknown apps</p>
+    <p>3. Install and open</p>
+
+    <a href="https://upload.app/download/foxledger/com.foxledger.app/45dcd2742b8e8d876a67f909a9c67bb6f17eb269b01f8d43ad9622ff270101b1" class="download-btn">
+      Download Now
+    </a>
+
+    <div class="close-btn" onclick="closePopup()">Close</div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Fox Ledger
+</footer>
+
+<script>
+function openPopup() {
+  document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
