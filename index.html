@@ -95,7 +95,7 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
@@ -106,6 +106,7 @@ h1 {
   padding: 25px;
   border-radius: 15px;
   max-width: 400px;
+  text-align: center;
 }
 
 .close-btn {
@@ -113,8 +114,14 @@ h1 {
   background: red;
   padding: 10px;
   border-radius: 8px;
-  text-align: center;
   cursor: pointer;
+}
+
+/* HIGHLIGHT TEXT */
+.highlight {
+  color: #00c896;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 footer {
@@ -130,7 +137,7 @@ footer {
 
 <header>
   <h1>🦊 Fox Ledger</h1>
-  <p class="tagline">Your Business Manager</p>
+  <p class="tagline">Smart Business Management, Simplified</p>
 
   <div class="download-btn" onclick="openPopup()">
     Download APK
@@ -140,10 +147,11 @@ footer {
 <div class="section">
 
   <div class="card">
-    <h2>🚀 About</h2>
+    <h2>🚀 About Fox Ledger</h2>
     <p>
-      Fox Ledger helps you manage your business with ease — clients,
-      inventory, sales, returns, payments, and reports in one place.
+      Fox Ledger is an all-in-one business management solution designed to help you
+      manage clients, inventory, sales, returns, and payments effortlessly.
+      Built for speed, clarity, and full offline capability.
     </p>
   </div>
 
@@ -152,106 +160,59 @@ footer {
 
     <div class="slider">
 
-      <div>
-        <div class="phone"><img src="dashboard.png"></div>
-        <div class="label">Dashboard</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="clients.png"></div>
-        <div class="label">Clients</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="add-client.png"></div>
-        <div class="label">Add Client</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="inventory.png"></div>
-        <div class="label">Inventory</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="add-item.png"></div>
-        <div class="label">Add Item</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="sales.png"></div>
-        <div class="label">Sales</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="sales-history.png"></div>
-        <div class="label">Sales History</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="returns.png"></div>
-        <div class="label">Returns</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="returns-history.png"></div>
-        <div class="label">Returns History</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="payments.png"></div>
-        <div class="label">Payments</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="payments-history.png"></div>
-        <div class="label">Payments History</div>
-      </div>
-
-      <div>
-        <div class="phone"><img src="settings.png"></div>
-        <div class="label">Settings</div>
-      </div>
+      <div><div class="phone"><img src="dashboard.png"></div><div class="label">Dashboard</div></div>
+      <div><div class="phone"><img src="clients.png"></div><div class="label">Clients</div></div>
+      <div><div class="phone"><img src="add-client.png"></div><div class="label">Add Client</div></div>
+      <div><div class="phone"><img src="inventory.png"></div><div class="label">Inventory</div></div>
+      <div><div class="phone"><img src="add-item.png"></div><div class="label">Add Item</div></div>
+      <div><div class="phone"><img src="sales.png"></div><div class="label">Sales</div></div>
+      <div><div class="phone"><img src="sales-history.png"></div><div class="label">Sales History</div></div>
+      <div><div class="phone"><img src="returns.png"></div><div class="label">Returns</div></div>
+      <div><div class="phone"><img src="returns-history.png"></div><div class="label">Returns History</div></div>
+      <div><div class="phone"><img src="payments.png"></div><div class="label">Payments</div></div>
+      <div><div class="phone"><img src="payments-history.png"></div><div class="label">Payments History</div></div>
+      <div><div class="phone"><img src="settings.png"></div><div class="label">Settings</div></div>
 
     </div>
-
   </div>
 
   <div class="card">
-    <h2>📊 Reports</h2>
+    <h2>📊 Reports & Insights</h2>
     <p>
-      Track performance, monitor sales, manage stock movement,
-      and analyze client balances with built-in reports.
+      Gain full visibility into your business with built-in reporting tools.
+      Monitor sales performance, track stock movement, review client balances,
+      and make informed decisions with clarity and confidence.
     </p>
   </div>
 
-<div class="card">
-  <h2>⚠️ Important Setup</h2>
-  
-  <p>
-    To unlock full functionality, including PDF invoice generation,
-    you must complete your company setup inside the app.
-  </p>
-
-  <ul>
-    <li>🏢 Go to <b>Settings</b> and add your company details</li>
-    <li>🏦 Add your banking details (up to 3 bank accounts supported)</li>
-    <li>📲 Add your Shop2Shop account including barcode</li>
-    <li>🧾 These details will appear automatically on your invoices</li>
-  </ul>
-
-  <p style="color:#00c896; margin-top:10px;">
-    ✔ This step is required for generating professional PDF invoices
-  </p>
-</div>
-
-  
   <div class="card">
-    <h2>📖 Quick Guide</h2>
-    <div class="guide-step"><b>1.</b> Add Clients</div>
-    <div class="guide-step"><b>2.</b> Add Inventory</div>
-    <div class="guide-step"><b>3.</b> Create Sales</div>
-    <div class="guide-step"><b>4.</b> Record Payments</div>
-    <div class="guide-step"><b>5.</b> Track Reports</div>
+    <h2>📖 Quick Start Guide</h2>
+    <div class="guide-step"><b>1.</b> Add your clients</div>
+    <div class="guide-step"><b>2.</b> Add your inventory items</div>
+    <div class="guide-step"><b>3.</b> Create sales (cash or account)</div>
+    <div class="guide-step"><b>4.</b> Record incoming payments</div>
+    <div class="guide-step"><b>5.</b> Track returns and history</div>
+    <div class="guide-step"><b>6.</b> Use reports to monitor performance</div>
+  </div>
+
+  <div class="card">
+    <h2>⚠️ Important Setup</h2>
+    
+    <p>
+      To enable professional invoice generation and ensure accurate business records,
+      Fox Ledger requires your company and payment details to be configured.
+    </p>
+
+    <ul>
+      <li>🏢 Navigate to <b>Settings</b> and enter your company information</li>
+      <li>🏦 Add up to <b>three bank accounts</b> for payment flexibility</li>
+      <li>📲 Include your <b>Shop2Shop account</b> and barcode for invoice display</li>
+      <li>🧾 These details will be automatically applied to generated invoices</li>
+    </ul>
+
+    <p class="highlight">
+      ✔ Completing this setup is required before generating PDF invoices
+    </p>
   </div>
 
 </div>
@@ -260,9 +221,9 @@ footer {
 <div class="popup" id="popup">
   <div class="popup-content">
     <h3>Install Fox Ledger</h3>
-    <p>1. Download APK</p>
-    <p>2. Allow unknown apps</p>
-    <p>3. Install and open</p>
+    <p>1. Download the APK file</p>
+    <p>2. Allow installation from unknown sources</p>
+    <p>3. Install and launch the app</p>
 
     <a href="https://upload.app/download/foxledger/com.foxledger.app/45dcd2742b8e8d876a67f909a9c67bb6f17eb269b01f8d43ad9622ff270101b1" class="download-btn">
       Download Now
@@ -273,7 +234,7 @@ footer {
 </div>
 
 <footer>
-  © 2026 Fox Ledger
+  © 2026 Fox Ledger. All rights reserved.
 </footer>
 
 <script>
